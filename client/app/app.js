@@ -20,7 +20,7 @@ angular.module('startUpApp', [
    'pdf'
   ])
 
-   .constant('API','http://10.72.196.21:8080/BAKEND_SGEDI')
+   .constant('API','http://localhost:8080/BAKEND_SGEDI')
 
   /*
  +*  Estructura para la configuración de satellizer

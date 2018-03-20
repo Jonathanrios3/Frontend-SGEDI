@@ -1,21 +1,21 @@
-<div class="container" style="padding-top: 115px; margin-left 20px">
+  <div class="container" style="padding-top: 60px;">
   <div class="row">
-    <div class="col-lg-12 Botons">
+    <div class="Botons">
       <!-- Barra para crear documentos o carpetas, siempre que ya exista alguno -->
       <div class="Botons" ng-if="vm.myDocuments.length > 0 || vm.mySharedDocuments.length > 0 || vm.myFolders.length > 0 || vm.mySharedFolders.length > 0" style="margin-top: 10px">
-        <button class="col-lg-3 btn btn-primary" style="margin-right: 10px " data-toggle="modal" data-target="#createFolderModal">CREAR CARPETA</button>
-        <button class="col-lg-3  btn btn-primary" data-toggle="modal" data-target="#uploadFileModal">SUBIR DOCUMENTO</button>
+        <button class="col-lg-5 btn btn-primary CrearCarpeta" data-toggle="modal" data-target="#createFolderModal">CREAR CARPETA</button>
+        <button class="col-lg-5  btn btn-primary" data-toggle="modal" data-target="#uploadFileModal">SUBIR DOCUMENTO</button>
       </div>
       <!-- Si hay documentos propios, compartidos o carpetas-->
       <div class="col-lg-12 text-center" ng-if="vm.myDocuments.length > 0 || vm.mySharedDocuments.length > 0 || vm.myFolders.length > 0 || vm.mySharedFolders.length > 0">
         <div ng-if="vm.myDocuments.length > 0" class="col-lg-12 Doc">
           <h2>MIS DOCUMENTOS</h1>
-          <div class="col-lg-3 " ng-repeat="document in vm.myDocuments">
+          <div class="col-lg-6 MisDocuments " ng-repeat="document in vm.myDocuments">
             <div class="list-group" ng-dblclick="vm.openDocument(document.id)">
-              <a target='_blank' download href="../../../assets/documentos/{{document.file}}">{{document.file}}<i class="fa fa-file-word-o" style="font-size: 45px" ng-if="document.format == 'doc' || document.format == 'docx' "></i></a>
+              <a class="TextDocument" target='_blank' download href="../../../assets/documentos/{{document.file}}">{{document.file}}<i class="fa fa-file-word-o IconDocument" style="font-size: 45px" ng-if="document.format == 'doc' || document.format == 'docx' "></i></a>
               
                 
-                <i class="fa fa-file-pdf-o" style="font-size: 45px" ng-if="document.format == 'pdf' "></i>
+                <i class="fa fa-file-pdf-o IconDocument" ng-if="document.format == 'pdf' "></i>
                
 
               </a>
@@ -25,7 +25,7 @@
 
         <div ng-if="vm.myFolders.length > 0" class="col-lg-12 Doc" id="carpeta">
           <h2>MIS CARPETAS</h2>
-          <div class="col-lg-3" ng-repeat="folder in vm.myFolders">
+          <div class="col-lg-6" ng-repeat="folder in vm.myFolders">
             <div class="list-group" ng-dblclick="vm.openFolder(folder.id)">
               <a href="#" class="list-group-item folder">
                 <i class="fa fa-folder-open" style="font-size: 45px"></i>
@@ -38,7 +38,7 @@
 
         <div ng-if="vm.mySharedDocuments.length > 0" id="compartidos">
           <h2>DOCUMENTOS COMPARTIDOS CONMIGO</h2>
-          <div class="col-lg-3" ng-repeat="document in vm.mySharedDocuments">
+          <div class="col-lg-6" ng-repeat="document in vm.mySharedDocuments">
             <div class="list-group" ng-dblclick="vm.openDocument(document.id)">
               <a href="#" class="list-group-item {{document.format}}">
                 <i class="fa fa-file-word-o" style="font-size: 45px" ng-if="document.format == 'doc' || document.format == 'docx' "></i>
