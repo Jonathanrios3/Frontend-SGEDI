@@ -20,7 +20,7 @@
           this.usuario = response;
           console.log("usuario", this.usuario);
         })
-        .cacth(err => {
+        .catch(err => {
           console.log("ERR", err);
         })
 

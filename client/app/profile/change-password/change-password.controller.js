@@ -2,7 +2,7 @@
 (function(){
 
 class ChangePasswordComponent {
-  constructor(usuariosService,$timeout,AuthService) {
+  constructor(usuariosService,$timeout,AuthService,toastr) {
   	this.AuthService = AuthService;
     this.usuariosService = usuariosService;
     this.$timeout = $timeout;
@@ -13,7 +13,7 @@ class ChangePasswordComponent {
     this.seguridadPass = undefined;
     this.equalPass = undefined;
     this.message = undefined;
-
+    this.toastr = toastr;
   }
 
 cambiarPass(){
@@ -28,12 +28,16 @@ cambiarPass(){
             this.dataChangePass = {oldPassword:undefined,
               newPassword:undefined,
               newPasswordC:undefined};
-            this.success = "Contraseña cambiada correctamente";
+            /*this.success = "Contraseña cambiada correctamente";
             $('.collapse').collapse('hide');
             this.$timeout(()=>{
               this.success = undefined;
               this.$scope.$apply();
-            },3000);
+            },3000);*/
+            this.toastr.success('Cambio exictosamente', {
+              progressBar: true,
+              closeButton: true
+            })
           })
           .catch(err =>{
             console.log(err);
@@ -57,4 +61,3 @@ angular.module('startUpApp')
   });
 
 })();
-

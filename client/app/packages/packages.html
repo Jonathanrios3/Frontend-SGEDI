@@ -1,7 +1,55 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			
+			<form>
+
+				<div><label>Selecciona un medio de pago</label></div>
+				<div>
+					<input type="radio" name="pagos" onchange="handleChange1(this)">
+					<img src="../../assets/images/img-packages/bbva.jpg">
+					<img src="../../assets/images/img-packages/colom.jpg">
+				</div>
+
+				<div>
+					<input type="radio" name="pagos" onchange="handleChange2(this)">
+					<img src="../../assets/images/img-packages/isa.jpg">
+					<img src="../../assets/images/img-packages/master.jpg">
+				</div>
+				
+				<div>
+					<input type="radio" name="pagos" onchange="handleChange3(this)">
+					<img src="../../assets/images/img-packages/paypal.png">
+					<img src="../../assets/images/img-packages/bitcoin.png">
+				</div>
+
+				<div><label>Información de tarjeta de crédito</label></div>
+				
+  				<div class="form-group">
+    				<label class="InfoItem" for="inputEmail">Correo electrónico</label>
+    				<input type="email" class="form-control" id="inputEmail" placeholder="Correo electrónico">
+  				</div>
+  				<div class="form-group">
+    				<label class="InfoItem" for="inputName">Nombre como aparece en la tarjeta</label>
+    				<input type="text" class="form-control" id="inputName" placeholder="Nombres">
+  				</div>
+  				<div class="form-group">
+   					<label class="InfoItem" for="inputNumero">Número de Tarjeta</label>
+    				<input type="text" class="form-control" id="inputNumero" placeholder="0000 0000 0000 0000">
+  				</div>
+
+  				<script type="text/javascript">
+				$(document).ready(function(){
+   					$(".campofecha").calendarioDW();
+				})
+				</script>
+
+  				<div class="form-group">
+  					<label class="InfoItem" for="inputFecha">Fecha de Expiración</label>
+  					<input type="text" name="fecha" class="campofecha form-control" size="12" placeholder="Fecha">
+  				</div>
+ 
+  				<button type="submit" class="btn btn-success">Realizar Pago</button>
+			</form>
 		</div>
 	</div>
 </div>

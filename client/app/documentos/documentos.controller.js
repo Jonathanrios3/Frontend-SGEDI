@@ -34,6 +34,18 @@ class DocumentosComponent {
     this.getMyFolders();
     this.getMySharedFolders();
     this.getCategories();
+
+  }
+
+  validar(documento, index){
+    console.log('test', index);
+    if(documento.format == 'docx' || documento.format == 'doc'){
+      $('#'+ String(index)).attr({target: '_blank',
+                          href : '../../../assets/documentos'+documento.file});
+    }else{
+      localStorage.setItem("documentToView", documento.id);
+      this.$state.go("view-document");
+    }
   }
   success(desserts) {
     this.desserts = this.desserts;
@@ -170,6 +182,7 @@ class DocumentosComponent {
     localStorage.setItem("folderToOpen", folderId);
     this.$state.go("view-folder");
   }
+  
 
 
 }

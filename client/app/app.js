@@ -20,12 +20,13 @@ angular.module('startUpApp', [
    'pdf'
   ])
 
-   .constant('API','http://localhost:8080/BAKEND_SGEDI')
+   .constant('API','http://10.72.196.21:8080/BAKEND_SGEDI')
 
   /*
  +*  Estructura para la configuración de satellizer
  +*/
  .config(function(API, $authProvider){
+
     $authProvider.loginUrl = API + '/api/auth/login';
     $authProvider.tokenName = 'token';
     $authProvider.tokenPrefix = 'startUpApp';

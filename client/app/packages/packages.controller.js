@@ -2,11 +2,17 @@
 (function(){
 
 class PackagesComponent {
-  constructor() {
-    this.message = 'Hello';
-  }
+	constructor(packagesService) {
+   		this.packagesService = packagesService;
+  	}
 
-
+  	$onInit(){
+  		this.packagesService.query().$promise
+    	.then(res =>{
+      		this.paquetes = res;
+      		console.log('Paquetes ',this.paquetes);
+    	})
+  	}
 
 
   
@@ -18,5 +24,4 @@ angular.module('startUpApp')
     controller: PackagesComponent,
     controllerAs: 'vm'
   });
-
 })();

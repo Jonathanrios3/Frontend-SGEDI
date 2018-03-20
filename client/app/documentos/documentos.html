@@ -12,10 +12,11 @@
           <h2>MIS DOCUMENTOS</h1>
           <div class="col-lg-3 " ng-repeat="document in vm.myDocuments">
             <div class="list-group" ng-dblclick="vm.openDocument(document.id)">
-              <a href="#" class="list-group-item {{document.format}}">
-                <i class="fa fa-file-word-o" style="font-size: 45px" ng-if="document.format == 'doc' || document.format == 'docx' "></i>
+              <a target='_blank' download href="../../../assets/documentos/{{document.file}}">{{document.file}}<i class="fa fa-file-word-o" style="font-size: 45px" ng-if="document.format == 'doc' || document.format == 'docx' "></i></a>
+              
+                
                 <i class="fa fa-file-pdf-o" style="font-size: 45px" ng-if="document.format == 'pdf' "></i>
-                <p class="list-group-item-text text-center" style="font-size: 12px; font-weight: bold;">{{document.name}}</p>
+               
 
               </a>
             </div>
